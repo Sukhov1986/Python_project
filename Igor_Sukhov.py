@@ -1,15 +1,14 @@
-# from random import randint
-#
-#
-# def function():
-#     a = (tuple(randint(0, 5) for i in range(10)))
-#     b = (tuple(randint(-5, 0) for i in range(10)))
-#     return a, b
-#
-#
-# tuple_1, tuple_2 = function()
-# # print(tuple_1, tuple_2)
-# tuple_3 = tuple_1 + tuple_2
-# print(tuple_3)
-# count = tuple_3.count(0)
-# print(f"o = {count}")
+try:
+    number = int(input("Введите число -> "))
+except ValueError:
+    print("Должно быть число ")
+    exit()
+tpl = tuple(str(i) for i in str(number))
+print(tpl)
+lst = []
+for i in tpl:
+    if i not in lst:
+        lst.append(i)
+print(lst)
+for i in lst:
+    print(f"{i} = {tpl.count(i)}")
