@@ -320,3 +320,10 @@ import random
 #     for city_info in cities_info:
 #         city_name, city_population = city_info
 #         print(f"{city_name}: {city_population} млн.")
+a = [1, 1, 2, 3, 4, 5, 6, 6]
+# b = []
+# for i in a:
+#     if i not in b:
+#         b.append(i)
+# print(b)
+x = 10
