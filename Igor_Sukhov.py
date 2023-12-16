@@ -12,3 +12,4 @@
 # print(lst)
 # for i in lst:
 #     print(f"{i} = {tpl.count(i)}")
+print("Изменения")
