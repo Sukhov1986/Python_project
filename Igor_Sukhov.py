@@ -17,3 +17,17 @@
 # vowels_1 = {'а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'}
 # vowels_2 = [x for x in string if x in vowels_1]
 # print(f'Количество гласных равно : {len(vowels_2)}')
+<<<<<<< HEAD
+=======
+
+dictionary_1 = {"name": "kelly", "age": 25, "salary": 8000, "city": "New York"}
+# print(dictionary_1)
+dictionary_2 = {key: dictionary_1[key] for key in dictionary_1 if key in ["name", "salary"]}
+for i in dictionary_2:
+    dictionary_1.pop(i)
+
+
+print(dictionary_1)
+print(dictionary_2)
+
+>>>>>>> homework
