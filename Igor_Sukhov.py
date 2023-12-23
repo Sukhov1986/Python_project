@@ -45,7 +45,7 @@ Total_Sales = {'January': 52000, 'February': 51000, "March": 48000}
 Production_Cost = {'January': 46800, 'February': 45900, "March": 43200}
 profit = dict(zip(Total_Sales.keys(),
                   [sales - cost for sales, cost in zip(list(Total_Sales.values()), list(Production_Cost.values()))]))
-print(profit)
+# print(profit)
 table = PrettyTable(['Element/Month', 'January', 'February', "March"])
 table.align = 'r'
 table.align['Element/Month'] = "l"
