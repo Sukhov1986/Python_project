@@ -39,18 +39,18 @@
 # print(dictionary_2)
 
 
-from prettytable import PrettyTable
-
-Total_Sales = {'January': 52000, 'February': 51000, "March": 48000}
-Production_Cost = {'January': 46800, 'February': 45900, "March": 43200}
-profit = dict(zip(Total_Sales.keys(),
-                  [sales - cost for sales, cost in zip(list(Total_Sales.values()), list(Production_Cost.values()))]))
-# print(profit)
-table = PrettyTable(['Element/Month', 'January', 'February', "March"])
-table.align = 'r'
-table.align['Element/Month'] = "l"
-table.add_row(['Total Sales', Total_Sales['January'], Total_Sales['February'], Total_Sales["March"]])
-table.add_row(['Production Cost', Production_Cost['January'], Production_Cost['February'], Production_Cost["March"]])
-table.add_row(['Profit', profit['January'], profit['February'], profit["March"]])
-print(table)
-
+# from prettytable import PrettyTable
+#
+# Total_Sales = {'January': 52000, 'February': 51000, "March": 48000}
+# Production_Cost = {'January': 46800, 'February': 45900, "March": 43200}
+# profit = dict(zip(Total_Sales.keys(),
+#                   [sales - cost for sales, cost in zip(list(Total_Sales.values()), list(Production_Cost.values()))]))
+# # print(profit)
+# table = PrettyTable(['Element/Month', 'January', 'February', "March"])
+# table.align = 'r'
+# table.align['Element/Month'] = "l"
+# table.add_row(['Total Sales', Total_Sales['January'], Total_Sales['February'], Total_Sales["March"]])
+# table.add_row(['Production Cost', Production_Cost['January'], Production_Cost['February'], Production_Cost["March"]])
+# table.add_row(['Profit', profit['January'], profit['February'], profit["March"]])
+# print(table)
+#
