@@ -29,17 +29,50 @@
 # print(dictionary_2)
 
 
-from prettytable import PrettyTable
+# from prettytable import PrettyTable
+#
+# Total_Sales = {'January': 52000, 'February': 51000, "March": 48000}
+# Production_Cost = {'January': 46800, 'February': 45900, "March": 43200}
+# profit = dict(zip(Total_Sales.keys(),
+#                   [sales - cost for sales, cost in zip(list(Total_Sales.values()), list(Production_Cost.values()))]))
+# print(profit)
+# table = PrettyTable(['Element/Month', 'January', 'February', "March"])
+# table.align = 'r'
+# table.align['Element/Month'] = "l"
+# table.add_row(['Total Sales', Total_Sales['January'], Total_Sales['February'], Total_Sales["March"]])
+# table.add_row(['Production Cost', Production_Cost['January'], Production_Cost['February'], Production_Cost["March"]])
+# table.add_row(['Profit', profit['January'], profit['February'], profit["March"]])
+# print(table)
 
-Total_Sales = {'January': 52000, 'February': 51000, "March": 48000}
-Production_Cost = {'January': 46800, 'February': 45900, "March": 43200}
-profit = dict(zip(Total_Sales.keys(),
-                  [sales - cost for sales, cost in zip(list(Total_Sales.values()), list(Production_Cost.values()))]))
-print(profit)
-table = PrettyTable(['Element/Month', 'January', 'February', "March"])
-table.align = 'r'
-table.align['Element/Month'] = "l"
-table.add_row(['Total Sales', Total_Sales['January'], Total_Sales['February'], Total_Sales["March"]])
-table.add_row(['Production Cost', Production_Cost['January'], Production_Cost['February'], Production_Cost["March"]])
-table.add_row(['Profit', profit['January'], profit['February'], profit["March"]])
-print(table)
+
+def main():
+    quantity = int(input("Введите количество учеников :"))
+    return quantity
+
+
+def data(**kwargs):
+    return kwargs
+
+
+def data_input():
+    s_surname = input("Введите фамилию :")
+    s_name = input("Введите имя :")
+    s_point = int(input("Введите балл :"))
+    return s_surname, s_name, s_point
+
+
+students = main()
+lst = []
+res = 0
+for i in range(students):
+    a, b, c = data_input()
+    res += c
+    x = data(surname=a, name=b, point=c)
+    lst.append(x)
+average_mark = res / students
+average_result = round(average_mark)
+print(f"Средний балл {average_result}. Студенты с баллом выше среднего :")
+for i in lst:
+    if i["point"] > average_result:
+        print(i["name"])
+
