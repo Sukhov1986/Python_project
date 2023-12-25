@@ -59,8 +59,6 @@
 # print(table)
 
 
-
-
 def main():
     quantity = int(input("Введите количество учеников :"))
     return quantity
@@ -91,5 +89,3 @@ print(f"Средний балл {average_result}. Студенты с балло
 for i in lst:
     if i["point"] > average_result:
         print(i["name"])
-
-
