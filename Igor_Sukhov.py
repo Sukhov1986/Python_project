@@ -59,33 +59,65 @@
 # print(table)
 
 
-def main():
-    quantity = int(input("Введите количество учеников :"))
-    return quantity
+# def main():
+#     quantity = int(input("Введите количество учеников :"))
+#     return quantity
+#
+#
+# def data(**kwargs):
+#     return kwargs
+#
+#
+# def data_input():
+#     s_surname = input("Введите фамилию :")
+#     s_name = input("Введите имя :")
+#     s_point = int(input("Введите балл :"))
+#     return s_surname, s_name, s_point
+#
+#
+# students = main()
+# lst = []
+# res = 0
+# for i in range(students):
+#     a, b, c = data_input()
+#     res += c
+#     x = data(surname=a, name=b, point=c)
+#     lst.append(x)
+# average_mark = res / students
+# average_result = round(average_mark)
+# print(f"Средний балл {average_result}. Студенты с баллом выше среднего :")
+# for i in lst:
+#     if i["point"] > average_result:
+#         print(i["name"])
+
+from math import pi
+
+figures = {
+    "circle": lambda x: x ** 2 * pi,
+    "rectangle": lambda x, y: x * y,
+    "trapezoid": lambda a, b, h: 0.5 * (a + b) * h
+}
 
 
-def data(**kwargs):
-    return kwargs
+def circle():
+    x = int(input("Введите радиус : "))
+    return x
 
 
-def data_input():
-    s_surname = input("Введите фамилию :")
-    s_name = input("Введите имя :")
-    s_point = int(input("Введите балл :"))
-    return s_surname, s_name, s_point
+def rectangle():
+    x, y = [int(input(f"Введите сторону прямоугольника {i} : ")) for i in ["1", "2"]]
+    return x, y
 
 
-students = main()
-lst = []
-res = 0
-for i in range(students):
-    a, b, c = data_input()
-    res += c
-    x = data(surname=a, name=b, point=c)
-    lst.append(x)
-average_mark = res / students
-average_result = round(average_mark)
-print(f"Средний балл {average_result}. Студенты с баллом выше среднего :")
-for i in lst:
-    if i["point"] > average_result:
-        print(i["name"])
+def trapezoid():
+    x, y, z = [int(input(f"Введите {i} : ")) for i in ["длину основания 1", "длину основания 2", "высоту"]]
+    return x, y, z
+
+
+circle_ = circle()
+side_1, side_2 = rectangle()
+base_1, base_2, height = trapezoid()
+
+print(f"Площадь окружности радиуса {circle_} : {figures['circle'](circle_)}")
+print(f"Площадь прямоугольника размером {side_1}*{side_2} : {figures['rectangle'](side_1, side_2)}")
+print(f"Площадь трапеции для a={base_1}, b={base_2}, h={height} : {figures['trapezoid'](base_1, base_2, height)}")
