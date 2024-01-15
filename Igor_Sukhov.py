@@ -121,3 +121,18 @@ base_1, base_2, height = trapezoid()
 print(f"Площадь окружности радиуса {circle_} : {figures['circle'](circle_)}")
 print(f"Площадь прямоугольника размером {side_1}*{side_2} : {figures['rectangle'](side_1, side_2)}")
 print(f"Площадь трапеции для a={base_1}, b={base_2}, h={height} : {figures['trapezoid'](base_1, base_2, height)}")
+
+
+def decorator(fn):
+    def wrapper(*args):
+        return fn(*args) / len(args)
+
+    return wrapper
+
+
+@decorator
+def summ(*args):
+    return sum(args)
+
+
+print(summ(2, 3, 3, 4))
