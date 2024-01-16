@@ -136,3 +136,14 @@ def summ(*args):
 
 
 print(summ(2, 3, 3, 4))
+
+
+def function(x, y):
+    if x > y:
+        x, y = y, x
+    return list(map(chr, [i for i in range(x, y + 1)]))
+
+
+a, b = 122, 97
+
+print(*function(a, b))
