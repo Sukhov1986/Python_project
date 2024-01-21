@@ -147,3 +147,9 @@ def function(x, y):
 a, b = 122, 97
 
 print(*function(a, b))
+
+
+str1 = "I am learning Python. hello, WORLD!"
+letter = "h"
+str1 = str1[:str1.find(letter) + 1] + str1[str1.find(letter)+1:str1.rfind(letter)][::-1] + str1[str1.rfind(letter):]
+print(str1)
