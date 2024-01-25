@@ -148,8 +148,13 @@ a, b = 122, 97
 
 print(*function(a, b))
 
-
 str1 = "I am learning Python. hello, WORLD!"
 letter = "h"
-str1 = str1[:str1.find(letter) + 1] + str1[str1.find(letter)+1:str1.rfind(letter)][::-1] + str1[str1.rfind(letter):]
+str1 = str1[:str1.find(letter) + 1] + str1[str1.find(letter) + 1:str1.rfind(letter)][::-1] + str1[str1.rfind(letter):]
 print(str1)
+
+import re
+
+text_ = "123456@i.ru, 123_456@ru.name.ru, login@i.ru, логин-1@i.ru, login.3@i.ru, login.3-67@i.ru, 1login@ru.name.ru"
+pattern = r"[\w.-]+@[\w.]*\.ru\b"
+print(re.findall(pattern, text_))
