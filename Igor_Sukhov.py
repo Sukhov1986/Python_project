@@ -158,3 +158,9 @@ import re
 text_ = "123456@i.ru, 123_456@ru.name.ru, login@i.ru, логин-1@i.ru, login.3@i.ru, login.3-67@i.ru, 1login@ru.name.ru"
 pattern = r"[\w.-]+@[\w.]*\.ru\b"
 print(re.findall(pattern, text_))
+
+import re
+
+tel = "+7 499 456-45-78, +74994564578, 7 (499) 456 45 78, 7 (499) 456-45-78 "
+req = r"\+*7(?:[\s(]*\d{3}[\s)]*){2}[-\s]*\d{2}[\s-]*\d{2}"
+print(re.findall(req, tel))
