@@ -164,3 +164,16 @@ import re
 tel = "+7 499 456-45-78, +74994564578, 7 (499) 456 45 78, 7 (499) 456-45-78 "
 req = r"\+*7(?:[\s(]*\d{3}[\s)]*){2}[-\s]*\d{2}[\s-]*\d{2}"
 print(re.findall(req, tel))
+
+
+def negative_number(n):
+    if not n:
+        return 0
+    count = 0
+    if n[0] < 0:
+        count += 1
+    return count + negative_number(n[1:])
+
+
+lst = [-2, 3, 8, -11, -4, 6]
+print(negative_number(lst))
