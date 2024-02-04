@@ -177,3 +177,32 @@ def negative_number(n):
 
 lst = [-2, 3, 8, -11, -4, 6]
 print(negative_number(lst))
+
+
+txt = ("Замена строки в текстовом файле;\n"
+       "Записать список в файл;\n"
+       "Изменить строку в списке;\n")
+
+
+def file_creation(file_name, text):
+    with open(file_name, "w") as f:
+        f.write(text)
+
+
+def replacement(file):
+    with open(file, "r") as f:
+        lines = f.readlines()
+    while True:
+        pos1, pos2 = [int(input(f"Заменить {val}")) for val in ["строку: ", "на строку: "]]
+        if 0 < pos1 <= len(lines) and 0 < pos2 <= len(lines):
+            lines[pos1 - 1], lines[pos2 - 1] = lines[pos2 - 1], lines[pos1 - 1]
+            break
+        else:
+            print(f"Неверный диапазон строк.Допустимое значение от 1 до {len(lines)}")
+
+    with open(file, "w") as f:
+        f.writelines(lines)
+
+
+file_creation("filename.txt", txt)
+replacement("filename.txt")
