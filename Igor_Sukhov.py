@@ -178,7 +178,6 @@ def negative_number(n):
 lst = [-2, 3, 8, -11, -4, 6]
 print(negative_number(lst))
 
-
 txt = ("Замена строки в текстовом файле;\n"
        "Записать список в файл;\n"
        "Изменить строку в списке;\n")
@@ -206,3 +205,28 @@ def replacement(file):
 
 file_creation("filename.txt", txt)
 replacement("filename.txt")
+
+import os
+
+dirs = "Homework"
+nested = ["test", "test1"]
+file_name = ["project.txt", "test.txt"]
+for d in nested:
+    os.makedirs(os.path.join(dirs, d), exist_ok=True)
+    for file in file_name:
+        file_path = os.path.join(dirs, file)
+        with open(file_path, "w") as f:
+            f.write(f"Это файл {file}")
+
+
+def scanning(directory):
+    if os.path.exists(directory):
+        contents = os.listdir(directory)
+        for i in contents:
+            full_path = os.path.join(directory, i)
+            print(f"{i} - file - {os.path.getsize(full_path)} bytes" if os.path.isfile(full_path) else f"{i} - dir")
+    else:
+        print("Такого пути не существует")
+
+
+scanning(dirs)
