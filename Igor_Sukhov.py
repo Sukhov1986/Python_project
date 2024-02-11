@@ -230,3 +230,62 @@ def scanning(directory):
 
 
 scanning(dirs)
+
+
+class Automobile:
+    def __init__(self):
+        self.model = ""
+        self.year = ""
+        self.manufacturer = ""
+        self.engine_power = ""
+        self.color = ""
+        self.price = ""
+
+    def input_data(self):
+        self.model = input("Модель автомобиля :")
+        self.year = input("Год выпуска :")
+        self.manufacturer = input("Производитель :")
+        self.engine_power = input("Мощность двигателя :")
+        self.color = input("Цвет машины :")
+        self.price = input("Цена :")
+
+    def print_info(self):
+        print(" Данные автомобиля ".center(40, "*"))
+        print(f"Название модели: {self.model}")
+        print(f"Год выпуска: {self.year}")
+        print(f"Производитель : {self.manufacturer}")
+        print(f"Мощность двигателя : {self.engine_power} л.с.")
+        print(f"Цвет машины : {self.color}")
+        print(f"Цена : {self.price}")
+        print("=" * 40)
+
+    def update_model(self):
+        new_model = input("Введите новую модель автомобиля: ")
+        self.model = new_model
+
+    def update_year(self):
+        new_year = input("Введите новый год выпуска: ")
+        self.year = new_year
+
+    def update_manufacturer(self):
+        new_manufacturer = input("Введите нового производителя: ")
+        self.manufacturer = new_manufacturer
+
+    def update_engine_power(self):
+        new_engine_power = input("Введите новую мощность двигателя: ")
+        self.engine_power = new_engine_power
+
+    def update_color(self):
+        new_color = input("Введите новый цвет машины: ")
+        self.color = new_color
+
+    def update_price(self):
+        new_price = input("Введите новую цену: ")
+        self.price = new_price
+
+
+car1 = Automobile()
+car1.input_data()
+car1.print_info()
+car1.update_color()
+car1.print_info()
