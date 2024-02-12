@@ -289,3 +289,55 @@ car1.input_data()
 car1.print_info()
 car1.update_color()
 car1.print_info()
+
+import turtle  # нужно импортировать модуль
+
+
+class Rectangle:
+    def __init__(self):
+        self.length = int(input("Введите длину прямоугольника : "))
+        self.width = int(input("Введите ширину прямоугольника : "))
+
+    def methods(self):
+        while True:
+            print("Выберите интересующий вас метод: ".center(40, "*"))
+            print("1 Площадь прямоугольника\n"
+                  "2 Периметр прямоугольника\n"
+                  "3 Гипотенуза прямоугольника\n"
+                  "4 Нарисовать прямоугольник")
+            choice = int(input("Введите номер метода : "))
+            if choice == 1:
+                self.square()
+            elif choice == 2:
+                self.perimeter()
+            elif choice == 3:
+                self.hypotenuse()
+            elif choice == 4:
+                self.draw()
+            else:
+                print("Введите правильный номер метода".center(40, "*"))
+            if 0 < choice < 5:
+                break
+
+    def square(self):
+        print(f"Площадь прямоугольника: {self.length * self.width}")
+
+    def perimeter(self):
+        print(f"Периметр прямоугольника: {2 * (self.length + self.width)}")
+
+    def hypotenuse(self):
+        print(f"Гипотенуза прямоугольника: {0.5 * (self.length ** 2 + self.width ** 2)}")
+
+    def draw(self):
+        t = turtle.Turtle()
+        for _ in range(2):
+            t.forward(self.length)
+            t.left(90)
+            t.forward(self.width)
+            t.left(90)
+        turtle.done()
+
+
+rectangle1 = Rectangle()
+rectangle1.methods()
+
