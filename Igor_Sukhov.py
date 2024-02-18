@@ -341,3 +341,65 @@ class Rectangle:
 rectangle1 = Rectangle()
 rectangle1.methods()
 
+
+class Person:
+
+    def __init__(self, name, old):
+        if Person.__check_value_old(old) and Person.__check_value_name(name):
+            self.__name = name
+            self.__old = old
+        else:
+            raise ValueError("Неправильный ввод данных")
+
+    @staticmethod
+    def __check_value_name(n):
+        if isinstance(n, str):
+            return True
+        return False
+
+    @staticmethod
+    def __check_value_old(o):
+        if isinstance(o, int):
+            return True
+        return False
+
+    @property
+    def name(self):
+        return self.__name
+
+    @name.setter
+    def name(self, new_name):
+        if Person.__check_value_name(new_name):
+            self.__name = new_name
+        else:
+            print("Имя должно быть строкой")
+
+    @name.deleter
+    def name(self):
+        del self.__name
+
+    @property
+    def old(self):
+        return self.__old
+
+    @old.setter
+    def old(self, new_old):
+        if Person.__check_value_old(new_old):
+            self.__old = new_old
+        else:
+            print("Возраст должен быть числом")
+
+    @old.deleter
+    def old(self):
+        del self.__old
+
+
+person1 = Person("Irina", 26)
+print(person1.name)
+print(person1.old)
+person1.name = "Igor"
+person1.old = 31
+print(person1.name)
+print(person1.old)
+del person1.name
+print(person1.__dict__)
