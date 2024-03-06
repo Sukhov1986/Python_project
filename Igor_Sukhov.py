@@ -742,3 +742,31 @@ print()
 acc.add_money(5000)
 print()
 acc.withdraw_money(3000)
+
+import math
+
+
+class Table:
+    def __init__(self, *args):
+        if len(args) == 2:
+            self._width = args[0]
+            self._height = args[1]
+        elif len(args) == 1:
+            self._radius = args[0]
+
+
+class Rectangular(Table):
+
+    def square(self):
+        return self._width * self._height
+
+
+class Round(Table):
+    def square(self):
+        return round(math.pi * self._radius ** 2, 2)
+
+
+rectangular_table = Rectangular(20, 20)
+print(rectangular_table.square())
+round_table = Round(20)
+print(round_table.square())
