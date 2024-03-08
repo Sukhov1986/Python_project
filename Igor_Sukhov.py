@@ -770,3 +770,22 @@ rectangular_table = Rectangular(20, 20)
 print(rectangular_table.square())
 round_table = Round(20)
 print(round_table.square())
+
+
+class Student:
+    def __init__(self, name):
+        self.name = name
+
+    def print_info(self):
+        print(f"{self.name} => {Student.Information.model}, {Student.Information.cpu}, {Student.Information.memory}")
+
+    class Information:
+        model = "HP"
+        cpu = "i7"
+        memory = 16
+
+
+winner_1 = Student("Roman")
+winner_1.print_info()
+winner_2 = Student("Vladimir")
+winner_2.print_info()
