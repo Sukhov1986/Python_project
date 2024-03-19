@@ -789,3 +789,68 @@ winner_1 = Student("Roman")
 winner_1.print_info()
 winner_2 = Student("Vladimir")
 winner_2.print_info()
+
+from copy import deepcopy
+
+
+class Clock:
+    DAY = 86400
+
+    def __init__(self, sec, name=None):
+        if not isinstance(sec, int):
+            raise ValueError("Секунды должны быть целым числом")
+        self.sec = sec % self.DAY
+        self.name = name
+
+    def get_format_time(self):
+        s = self.sec % 60
+        m = (self.sec // 60) % 60
+        h = (self.sec // 3600) % 24
+        return f"{Clock.get_form(h)}:{Clock.get_form(m)}:{Clock.get_form(s)}"
+
+    @staticmethod
+    def get_form(x):
+        return str(x) if x > 9 else "0" + str(x)
+
+    def __str__(self):
+        return self.get_format_time()
+
+    def __add__(self, other):
+        if not isinstance(other, Clock):
+            raise ValueError("Правый операнд должен быть типом Clock")
+        return Clock(self.sec + other.sec)
+
+    def __sub__(self, other):
+        if not isinstance(other, Clock):
+            raise ValueError("Правый операнд должен быть типом Clock")
+        return Clock(self.sec - other.sec)
+
+    def __mul__(self, other):
+        if not isinstance(other, Clock):
+            raise ValueError("Правый операнд должен быть типом Clock")
+        return Clock(self.sec * other.sec)
+
+    def __floordiv__(self, other):
+        if not isinstance(other, Clock):
+            raise ValueError("Правый операнд должен быть типом Clock")
+        return Clock(self.sec // other.sec)
+
+
+c1 = Clock(600, "c1")
+c2 = Clock(200, "c2")
+print(f"{c1.name}: {c1.get_format_time()}")
+print(f"{c2.name}: {c2.get_format_time()}")
+print(f"{c1.name} + {c2.name}: {c1 + c2}")
+print(f"{c1.name} - {c2.name}: {c1 - c2}")
+print(f"{c1.name} * {c2.name}: {c1 * c2}")
+print(f"{c1.name} // {c2.name}: {c1 // c2}")
+c1_copy = deepcopy(c1)
+c1_copy += c2
+print(f"c1 += c2: {c1_copy}")
+c1_copy -= c2
+print(f"c1 -= c2: {c1_copy}")
+c1_copy *= c2
+print(f"c1 *= c2: {c1_copy}")
+c1_copy //= c2
+print(f"c1 //= c2: {c1_copy}")
+
