@@ -854,3 +854,60 @@ print(f"c1 *= c2: {c1_copy}")
 c1_copy //= c2
 print(f"c1 //= c2: {c1_copy}")
 
+
+class Point3D:
+    def __init__(self, x, y, z):
+        self.data = {"x": x, "y": y, "z": z}
+
+    def __str__(self):
+        return f"({self.data['x']}, {self.data['y']}, {self.data['z']})"
+
+    def __add__(self, other):
+        return Point3D(self.data['x'] + other.data['x'], self.data['y'] + other.data['y'],
+                       self.data['z'] + other.data['z'])
+
+    def __sub__(self, other):
+        return Point3D(self.data['x'] - other.data['x'], self.data['y'] - other.data['y'],
+                       self.data['z'] - other.data['z'])
+
+    def __mul__(self, other):
+        return Point3D(self.data['x'] * other.data['x'], self.data['y'] * other.data['y'],
+                       self.data['z'] * other.data['z'])
+
+    def __truediv__(self, other):
+        return Point3D(self.data['x'] / other.data['x'], self.data['y'] / other.data['y'],
+                       self.data['z'] / other.data['z'])
+
+    def __eq__(self, other):
+        return (self.data['x'] == other.data['x'] and self.data['y'] == other.data['y'] and
+                self.data['z'] == other.data['z'])
+
+    def __getitem__(self, item):
+        if not isinstance(item, str):
+            raise TypeError("Неправильный тип данных ключа")
+        if item in self.data:
+            return self.data[item]
+        else:
+            raise KeyError("Неверный ключ")
+
+    def __setitem__(self, key, value):
+        if not isinstance(key, str):
+            raise TypeError("Неправильный тип данных ключа")
+        if not isinstance(value, int):
+            raise TypeError("Неправильный тип данных значения")
+        if key in self.data:
+            self.data[key] = value
+        else:
+            raise KeyError("Неверный ключ")
+
+
+point1 = Point3D(12, 15, 18)
+point2 = Point3D(6, 3, 9)
+print(f"Сложение координат:  {point1 + point2}")
+print(f"Вычитание координат:  {point1 - point2}")
+print(f"Умножение:  {point1 * point2}")
+print(f"Деление:  {point1 / point2}")
+print(f"Равенство координат: {point1 == point2}")
+print(f"Получение координаты {point1['x']}")
+point1["x"] = 20
+print(f"Запись значения в координату x: {point1['x']}")
