@@ -911,3 +911,34 @@ print(f"Равенство координат: {point1 == point2}")
 print(f"Получение координаты {point1['x']}")
 point1["x"] = 20
 print(f"Запись значения в координату x: {point1['x']}")
+
+class Descriptor:
+    def __set_name__(self, owner, name):
+        self.__name = name
+
+    def __get__(self, instance, owner):
+        return instance.__dict__[self.__name]
+
+    def __set__(self, instance, value):
+        if not isinstance(value, int):
+            raise TypeError(f"{self.__name} должно быть числом")
+        if value < 0:
+            raise ValueError(f"{self.__name} должно быть положительным числом")
+        instance.__dict__[self.__name] = value
+
+
+class Order:
+    price = Descriptor()
+    quantity = Descriptor()
+
+    def __init__(self, name, price, quantity):
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+
+    def summ(self):
+        return self.price * self.quantity
+
+
+purchase1 = Order('apple', 5, 10)
+print(purchase1.summ())
